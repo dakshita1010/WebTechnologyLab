@@ -1,0 +1,115 @@
+/* Basic Reset and Root Variables */
+:root {
+    /* Updated Colors for a Tech/Cyber feel */
+    --primary-color: #00bcd4; /* Teal/Cyan for accents */
+    --secondary-color: #34495e; /* Darker blue/gray for header/footer */
+    --background-color: #f4f4f9; /* Light, subtle background */
+    --text-color: #333; /* Darker text */
+    --font-stack: 'Roboto', sans-serif; /* Changed to a clean, modern font */
+}
+
+body {
+    font-family: var(--font-stack);
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 1. Style the Header */
+header {
+    background-color: var(--secondary-color); /* Dark background color */
+    color: white; /* Light text color for contrast */
+    text-align: center; /* Centered text */
+    padding: 30px 0; /* Increased vertical spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* More prominent shadow */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    letter-spacing: 1px;
+}
+
+.tagline {
+    margin: 8px 0 0 0;
+    font-weight: 300;
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+/* Arrange Content Cleanly: Use a main container for spacing */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Add Spacing, Fonts, and Basic Colors to Each Section */
+section {
+    background-color: white;
+    margin-bottom: 35px;
+    padding: 25px;
+    border-radius: 10px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* Light shadow */
+}
+
+section h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Skills Section List Styling */
+#skills ul {
+    list-style: none; /* Remove default marker */
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 15px; /* Spacing between skill boxes */
+}
+
+#skills li {
+    background-color: #e0f7fa; /* Light background for skill tags */
+    color: var(--secondary-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    flex-grow: 1; /* Allow skill items to grow */
+    text-align: center;
+}
+
+/* Projects Section Styling */
+.project-list article {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.project-list article:hover {
+    transform: translateY(-3px); /* Subtle hover effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 5. Footer Styling */
+footer {
+    background-color: var(--secondary-color);
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
