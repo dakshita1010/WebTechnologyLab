@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Audio and Video Exercise</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        section {
+            margin-bottom: 50px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .time-display {
+            margin-top: 10px;
+            font-weight: bold;
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Multimedia Web Page</h1>
+    <p>This page demonstrates the use of HTML5 audio and video elements with controls and dynamic time display.</p>
+
+    <section>
+        <h2>🔊 Audio Player Example</h2>
+        
+        <audio id="myAudio" controls>
+            <source src="your-audio-file.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <span class="time-display">
+            Current Audio Time: <span id="audioTime">00:00</span>
+        </span>
+    </section>
+
+    <section>
+        <h2>📺 Video Player Example</h2>
+        
+        <video id="myVideo" controls width="640" height="360">
+            <source src="your-video-file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <span class="time-display">
+            Current Video Time: <span id="videoTime">00:00</span>
+        </span>
+    </section>
+
+    <script src="media-controls.js"></script>
+
+</body>
+</html>

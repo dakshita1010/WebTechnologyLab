@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas Exercise</title>
+    <style>
+        #myCanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML5 Canvas Drawing Example</h1>
+
+    <canvas id="myCanvas" width="500" height="300">
+        Your browser does not support the HTML5 canvas element.
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+
+            // Filled Rectangle
+            ctx.fillStyle = 'red';
+            ctx.fillRect(20, 20, 100, 60); 
+
+            // Filled Circle
+            ctx.beginPath();
+            ctx.arc(
+                200,    
+                100,    
+                40,     
+                0,      
+                2 * Math.PI 
+            );
+            ctx.fillStyle = 'yellow';
+            ctx.fill();
+
+            // Straight Line
+            ctx.beginPath();
+            ctx.moveTo(350, 50);
+            ctx.lineTo(450, 150);
+            ctx.strokeStyle = 'green';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+
+            // Text
+            ctx.font = '30px Arial';
+            ctx.fillStyle = 'purple';
+            ctx.fillText('HTML5 Canvas', 150, 250); 
+            
+        } else {
+            console.error("Canvas context not supported in this browser.");
+        }
+    </script>
+
+</body>
+</html>
