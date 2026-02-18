@@ -1,0 +1,12 @@
+[
+  { "id": "S1001", "name": "Alice Smith", "department": "CS", "marks": 88 },
+  { "id": "S1002", "name": "Bob Johnson", "department": "Electrical Engineering", "marks": 92 },
+  { "id": "S1003", "name": "Carol Williams", "department": "Mechanical", "marks": 76 },
+  { "id": "S1004", "name": "David Brown", "department": "Civil", "marks": 84 },
+  { "id": "S1005", "name": "Emma Davis", "department": "CS", "marks": 95 },
+  { "id": "S1006", "name": "Frank Miller", "department": "Mathematics", "marks": 81 },
+  { "id": "S1007", "name": "Grace Wilson", "department": "CS", "marks": 69 },
+  { "id": "S1008", "name": "Henry Moore", "department": "Physics", "marks": 78 },
+  { "id": "S1009", "name": "Ivy Taylor", "department": "Chemistry", "marks": 90 },
+  { "id": "S1010", "name": "Jack Anderson", "department": "CS", "marks": 73 }
+]

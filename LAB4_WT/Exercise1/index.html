@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Username Availability Checker</title>
+<style>
+  #feedback { margin-top: 10px; font-weight: bold; }
+  #loading { display: none; }
+</style>
+</head>
+<body>
+<form id="registrationForm">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required />
+  <div id="loading">Checking...</div>
+  <div id="feedback"></div>
+  <button type="submit">Register</button>
+</form>
+
+<script>
+const usernameInput = document.getElementById('username');
+const feedback = document.getElementById('feedback');
+const loadingIndicator = document.getElementById('loading');
+const form = document.getElementById('registrationForm');
+
+let isAvailable = false;
+let debounceTimeout = null;
+
+usernameInput.addEventListener('input', () => {
+  clearTimeout(debounceTimeout);
+  feedback.textContent = '';
+  isAvailable = false;
+  if (usernameInput.value.trim() === '') return;
+  debounceTimeout = setTimeout(() => {
+    checkUsername(usernameInput.value.trim());
+  }, 500);
+});
+
+function checkUsername(username) {
+  loadingIndicator.style.display = 'block';
+  fetch('usernames.json')
+    .then(response => response.json())
+    .then(data => {
+      loadingIndicator.style.display = 'none';
+      if (data.existingUsernames.includes(username)) {
+        feedback.textContent = 'Username already taken';
+        feedback.style.color = 'red';
+        isAvailable = false;
+      } else {
+        feedback.textContent = 'Username available';
+        feedback.style.color = 'green';
+        isAvailable = true;
+      }
+    })
+    .catch(() => {
+      loadingIndicator.style.display = 'none';
+      feedback.textContent = 'Error checking username';
+      feedback.style.color = 'red';
+      isAvailable = false;
+    });
+}
+
+form.addEventListener('submit', (e) => {
+  if (!isAvailable) {
+    e.preventDefault();
+    alert('Please choose an available username.');
+  }
+});
+</script>
+</body>
+</html>

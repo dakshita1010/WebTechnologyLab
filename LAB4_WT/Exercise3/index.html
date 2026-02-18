@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Management System</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  form { margin-bottom: 20px; }
+  input { margin: 5px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+  .message { margin-top: 10px; font-weight: bold; }
+  button { margin: 2px; }
+</style>
+</head>
+<body>
+
+<h2>Student Management System</h2>
+
+<!-- Form for Add/Update Student -->
+<form id="studentForm">
+  <input type="hidden" id="studentId" />
+  <input type="text" id="name" placeholder="Name" required />
+  <input type="text" id="department" placeholder="Department" required />
+  <input type="number" id="marks" placeholder="Marks" required />
+  <button type="submit" id="submitBtn">Add Student</button>
+  <button type="button" id="cancelBtn" style="display:none;">Cancel</button>
+</form>
+
+<!-- Messages -->
+<div class="message" id="message"></div>
+
+<!-- Student Table -->
+<table id="studentTable">
+  <thead>
+    <tr>
+      <th>ID</th><th>Name</th><th>Department</th><th>Marks</th><th>Actions</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
