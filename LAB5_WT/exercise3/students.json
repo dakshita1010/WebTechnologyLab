@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Amit Sharma",
+    "course": "BCA",
+    "marks": 85
+  },
+  {
+    "id": 2,
+    "name": "Neha Verma",
+    "course": "BSc",
+    "marks": 92
+  }
+]

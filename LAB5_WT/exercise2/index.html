@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Book Tracker</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Library Book Tracker</h2>
+
+<button onclick="loadBooks()">Load Books</button>
+
+<h3>Add / Update Book</h3>
+
+ID: <input type="text" id="bookId"><br><br>
+Title: <input type="text" id="title"><br><br>
+Author: <input type="text" id="author"><br><br>
+Availability:
+<select id="availability">
+    <option value="Available">Available</option>
+    <option value="Issued">Issued</option>
+</select><br><br>
+
+<button onclick="addBook()">Add Book</button>
+<button onclick="updateBook()">Update Availability</button>
+<button onclick="deleteBook()">Delete Book</button>
+
+<h3>Book List</h3>
+<div id="bookTable"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
