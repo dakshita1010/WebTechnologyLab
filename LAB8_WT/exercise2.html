@@ -2,51 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Student Info</title>
-  <style>
-    #output {
-      font-family: Arial, sans-serif;
-      font-size: 22px; 
-    }
-  </style>
+  <title>Student Object Exercise</title>
 </head>
 <body>
-  <h1>Student Details</h1>
-  <div id="output"></div>
+  <h1>Student Object Property and Spread Operator Demo</h1>
+  <form id="studentForm">
+    <label for="id">Student ID:</label>
+    <input type="text" id="id" required /><br/><br/>
+
+    <label for="name">Student Name:</label>
+    <input type="text" id="name" required /><br/><br/>
+
+    <label for="department">Department:</label>
+    <input type="text" id="department" required /><br/><br/>
+
+    <label for="marks">Marks:</label>
+    <input type="number" id="marks" min="0" required /><br/><br/>
+
+    <button type="submit">Show Details</button>
+  </form>
+
+  <h2>Results:</h2>
+  <pre id="result"></pre>
 
   <script>
-    const student = {
-      id: 101,
-      name: "Priya",
-      department: "CSE",
-      marks: 92
-    };
+    document.getElementById('studentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    const { id, name, department, marks } = student;
+      const id = document.getElementById('id').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const department = document.getElementById('department').value.trim();
+      const marksInput = document.getElementById('marks').value;
+      const marks = parseFloat(marksInput);
 
-    let grade;
-    if (marks >= 90) {
-      grade = 'A';
-    } else if (marks >= 80) {
-      grade = 'B';
-    } else if (marks >= 70) {
-      grade = 'C';
-    } else if (marks >= 60) {
-      grade = 'D';
-    } else {
-      grade = 'F';
-    }
+      if (isNaN(marks)) {
+        alert('Please enter a valid number for marks.');
+        return;
+      }
 
-    const updatedStudent = {
-      ...student,
-      grade: grade
-    };
+      const student = {
+        id,
+        name,
+        department,
+        marks
+      };
 
-    const line1 = `${id} ${name} ${department} ${marks}`;
-    const line2 = JSON.stringify(updatedStudent);
+      const { id: studentId, name: studentName, department: dept, marks: studentMarks } = student;
 
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = `<p>${line1}</p><pre>${line2}</pre>`;
+      let grade;
+      if (studentMarks >= 90) {
+        grade = 'A';
+      } else if (studentMarks >= 75) {
+        grade = 'B';
+      } else if (studentMarks >= 60) {
+        grade = 'C';
+      } else if (studentMarks >= 50) {
+        grade = 'D';
+      } else {
+        grade = 'F';
+      }
+
+      const studentWithGrade = {
+        ...student,
+        grade
+      };
+
+      const originalInfo = `
+Original Student Object:
+ID: ${studentId}
+Name: ${studentName}
+Department: ${dept}
+Marks: ${studentMarks}
+`;
+
+      const updatedInfo = `
+Updated Student Object with Grade:
+${JSON.stringify(studentWithGrade, null, 2)}
+`;
+
+      document.getElementById('result').textContent = originalInfo + updatedInfo;
+    });
   </script>
 </body>
 </html>
