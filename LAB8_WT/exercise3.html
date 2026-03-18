@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Course Enrollment System</title>
+</head>
+<body>
+  <h1>Course Enrollment System</h1>
+  <div id="output"></div>
+
+  <script>
+    class Course {
+      constructor(name, instructor, seatsAvailable) {
+        this.name = name;
+        this.instructor = instructor;
+        this.seatsAvailable = seatsAvailable;
+      }
+
+      displayDetails() {
+        return `Course: ${this.name}, Instructor: ${this.instructor}`;
+      }
+
+      enroll() {
+        return new Promise((resolve, reject) => {
+          if (this.seatsAvailable > 0) {
+            this.seatsAvailable--;
+            resolve("Enrollment Successful");
+          } else {
+            reject("Course Full");
+          }
+        });
+      }
+    }
+
+    const course = new Course("Web Technologies", "Dr. Kumar", 1);
+
+    const outputDiv = document.getElementById("output");
+
+    outputDiv.innerHTML += `<p>${course.displayDetails()}</p>`;
+
+    course.enroll()
+      .then(message => {
+        outputDiv.innerHTML += `<p>${message}</p>`;
+      })
+      .catch(error => {
+        outputDiv.innerHTML += `<p>${error}</p>`;
+      });
+  </script>
+</body>
+</html>
