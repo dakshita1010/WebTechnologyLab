@@ -2,50 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student Marks</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-    }
-    h1 {
-      color: #333;
-    }
-    .result {
-      background-color: #f9f9f9;
-      padding: 15px;
-      border-radius: 8px;
-      max-width: 400px;
-    }
-  </style>
+  <title>Student Marks Calculator</title>
 </head>
 <body>
-  <h1>Student Marks Result</h1>
-  <div class="result" id="result"></div>
+  <h1>Student Marks Calculator</h1>
+  <form id="studentForm">
+    <label for="name">Student Name:</label>
+    <input type="text" id="name" required /><br/><br/>
+
+    <label for="subjects">Number of Subjects:</label>
+    <input type="number" id="subjects" min="1" required /><br/><br/>
+
+    <button type="submit">Calculate</button>
+  </form>
+
+  <h2>Result:</h2>
+  <pre id="result"></pre>
 
   <script>
-    const studentName = 'John Doe';
+    document.getElementById('studentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
 
-    let mathMarks = 85;
-    let scienceMarks = 90;
-    let englishMarks = 78;
+      const studentName = document.getElementById('name').value.trim();
+      const numSubjects = parseInt(document.getElementById('subjects').value);
 
-    const totalMarks = mathMarks + scienceMarks + englishMarks;
+      let marks = [];
 
-    const computeAverage = (total, subjectsCount) => total / subjectsCount;
+      for (let i = 1; i <= numSubjects; i++) {
+        const markStr = prompt(`Enter marks for subject ${i}:`);
+        const mark = parseFloat(markStr);
+        if (isNaN(mark)) {
+          alert('Please enter a valid number for marks.');
+          i--; 
+        } else {
+          marks.push(mark);
+        }
+      }
 
-    const numberOfSubjects = 3;
+      let totalMarks = marks.reduce((sum, current) => sum + current, 0);
 
-    const averageMarks = computeAverage(totalMarks, numberOfSubjects);
+      const computeAverage = (total, count) => total / count;
 
-    const message = `
-      Student Name: ${studentName}<br>
-      Total Marks: ${totalMarks}<br>
-      Average Marks: ${averageMarks.toFixed(2)}
-    `;
+      const averageMarks = computeAverage(totalMarks, marks.length);
 
-    document.getElementById('result').innerHTML = message;
+      const output = `
+        Student Name: ${studentName}
+        Total Marks: ${totalMarks}
+        Average Marks: ${averageMarks.toFixed(2)}
+      `;
+
+      document.getElementById('result').textContent = output;
+    });
   </script>
 </body>
 </html>
