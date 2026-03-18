@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Marks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    h1 {
+      color: #333;
+    }
+    .result {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Marks Result</h1>
+  <div class="result" id="result"></div>
+
+  <script>
+    const studentName = 'John Doe';
+
+    let mathMarks = 85;
+    let scienceMarks = 90;
+    let englishMarks = 78;
+
+    const totalMarks = mathMarks + scienceMarks + englishMarks;
+
+    const computeAverage = (total, subjectsCount) => total / subjectsCount;
+
+    const numberOfSubjects = 3;
+
+    const averageMarks = computeAverage(totalMarks, numberOfSubjects);
+
+    const message = `
+      Student Name: ${studentName}<br>
+      Total Marks: ${totalMarks}<br>
+      Average Marks: ${averageMarks.toFixed(2)}
+    `;
+
+    document.getElementById('result').innerHTML = message;
+  </script>
+</body>
+</html>
