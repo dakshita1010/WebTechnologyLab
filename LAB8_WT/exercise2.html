@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Info</title>
+  <style>
+    #output {
+      font-family: Arial, sans-serif;
+      font-size: 22px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Student Details</h1>
+  <div id="output"></div>
+
+  <script>
+    const student = {
+      id: 101,
+      name: "Priya",
+      department: "CSE",
+      marks: 92
+    };
+
+    const { id, name, department, marks } = student;
+
+    let grade;
+    if (marks >= 90) {
+      grade = 'A';
+    } else if (marks >= 80) {
+      grade = 'B';
+    } else if (marks >= 70) {
+      grade = 'C';
+    } else if (marks >= 60) {
+      grade = 'D';
+    } else {
+      grade = 'F';
+    }
+
+    const updatedStudent = {
+      ...student,
+      grade: grade
+    };
+
+    const line1 = `${id} ${name} ${department} ${marks}`;
+    const line2 = JSON.stringify(updatedStudent);
+
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = `<p>${line1}</p><pre>${line2}</pre>`;
+  </script>
+</body>
+</html>
